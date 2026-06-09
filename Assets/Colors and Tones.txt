@@ -1,0 +1,7 @@
+Green 852Hz
+Aqua 417Hz
+Blue 741Hz
+Violet 963Hz
+Lavender 432Hz
+Magenta 639Hz
+Cyan 528Hz
