@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using System.Collections.Generic;
 
 public class AppManager : MonoBehaviour
 {
@@ -33,6 +33,8 @@ public class AppManager : MonoBehaviour
 	{
 		DOTween.Init();
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+		//this.splashCanvasGroup.gameObject.SetActive(true);
 
 #if UNITY_EDITOR
 		//check 32 or 64 bit

@@ -32,24 +32,10 @@ public class TMPLinkHandler : MonoBehaviour, IPointerClickHandler
     private void HandleLinkClick(string linkId)
     {
         // OPTION A: If it's a web URL, open it in a browser
-        if (linkId.StartsWith("http://") || linkId.StartsWith("https://"))
+        if (linkId.StartsWith("http://") || linkId.StartsWith("https://") || linkId.StartsWith("mailto:"))
         {
             Application.OpenURL(linkId);
             Debug.Log($"Opening URL: {linkId}");
-        }
-        // OPTION B: Handle custom in-game triggers
-        else
-        {
-            switch (linkId)
-            {
-                case "open_shop_menu":
-                    // Call your shop script here
-                    Debug.Log("Opening In-Game Shop!");
-                    break;
-                default:
-                    Debug.LogWarning($"No action defined for link ID: {linkId}");
-                    break;
-            }
         }
     }
 }
