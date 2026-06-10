@@ -12,7 +12,8 @@ public class UiManager : MonoBehaviour
 	[SerializeField] private CanvasGroup headerCanvasGroup;
 
 	[SerializeField] private VerticalLayoutGroup menuTabsVLG;
-	[SerializeField] private Button[] tabs;
+	public SequenceTab HowThisWorksTab;
+	[SerializeField] private SequenceTab[] tabs;
 	[SerializeField] private CanvasGroup[] pages;
 	[SerializeField] private RectTransform backButton;
 
@@ -120,19 +121,63 @@ public class UiManager : MonoBehaviour
 
 		this.pages[this.selectedPageIndex].DOFade(0, this.tweenDuration);
 
+		if (AppManager.CurrentSequenceIndex == -1)
+		{
+			AppManager.CurrentSequenceIndex = 0;
+			this.HowThisWorksTab.SetSelected(false);
+		}
+		else
+		{
+			++AppManager.CurrentSequenceIndex;
+			if(AppManager.CurrentSequenceIndex == tabs.Length - 1)
+			{
+				Debug.Log("Show Gma Message");
+			}
+		}
+
+		SetTabStatesToIndex(AppManager.CurrentSequenceIndex);
+
 		//if( this.pages[this.selectedPageIndex].TryGetComponent<VideoPage>(out var vp)) vp.StopVideo();
 	}
 
-	public void SelectPage(int index)
+	public void SelectPage(int inIndex)
 	{
-		this.selectedPageIndex = index;
+		this.selectedPageIndex = inIndex;
 
 		PlayHideTabsTween();
 	}
 
-	public void PlaySequence(int index)
+	public void PlaySequence(int inIndex)
 	{
+		AppManager.CurrentSequenceIndex = inIndex;
+	}
 
+	public void SetTabStatesToIndex(int inIndex)
+	{
+		inIndex += 1;
+		for(int i = 1; i < this.tabs.Length; ++i)
+		{
+			var tab = this.tabs[i];
+
+			if (i < inIndex)
+			{
+				tab.SetDisabled(true);
+				tab.SetInteractable(false);
+				tab.SetSelected(false);
+			}
+			else if (i == inIndex)
+			{
+				tab.SetDisabled(false);
+				tab.SetInteractable(true);
+				tab.SetSelected(true);
+			}
+			else
+			{
+				tab.SetDisabled(false);
+				tab.SetInteractable(false);
+				tab.SetSelected(false);
+			}
+		}
 	}
 
 	public void HandleSplashPageClick()

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SequenceTab : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class SequenceTab : MonoBehaviour
     public int OrderHash = 0;
 
     [SerializeField] private Transform[] patterns;
+
+    [SerializeField] private GameObject selectedState;
+    [SerializeField] private GameObject disabledOverlay;
+    [SerializeField] private Button button;
 
     public void SetPatterns(List<int> inPatternOrder)
     {
@@ -51,5 +56,23 @@ public class SequenceTab : MonoBehaviour
     public void ApplyNumbers()
     {
         SetPatterns(this.Numbers);
+    }
+
+    public void SetSelected(bool inSelected)
+    {
+        if(this.selectedState)
+            this.selectedState.SetActive(inSelected);
+    }
+
+    public void SetDisabled(bool inDisabled)
+    {
+        if(this.disabledOverlay)
+            this.disabledOverlay.SetActive(inDisabled);
+    }
+
+    public void SetInteractable(bool inInteractable)
+    {
+        if(this.button)
+            this.button.interactable = inInteractable;
     }
 }
