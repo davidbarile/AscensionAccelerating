@@ -7,19 +7,18 @@ public class SequenceRandomizer : MonoBehaviour
     [SerializeField] private SequenceTab openingSequenceTab;
     [SerializeField] private SequenceTab[] sequenceTabs;
 
-    private int[] openingSequence = { 6, 5, 4, 3, 2 };//set custom order here
-    private int[] numbers = { 0, 1, 2, 3, 4, 5, 6 };
+    //0 = Aqua, 1 = Blue, 2 = Cyan, 3 = Green, 4 = Lavender, 5 = Magenta, 6 = Violet
+    private readonly int[] openingSequence = { 3, 4, 1, 0, 2, 5 };//green, lavender, blue, aqua, cyan, magenta
+    private readonly int[] numbers = { 0, 1, 2, 3, 4, 5, 6 };
 
     public void SetOpeningPattern()
     {
-        var openingSequence = this.openingSequence.ToList();
-        this.openingSequenceTab.SetPatterns(openingSequence);
+        var openingSequenceList = this.openingSequence.ToList();
+        this.openingSequenceTab.SetPatterns(openingSequenceList);
     }
 
     public void GenerateRandomPatterns()
     {
-        SetOpeningPattern();
-
         var availableFirstNumbers = this.numbers.ToList().CreateRandomizedList<int>();
 
         if (this.sequenceTabs.Length > availableFirstNumbers.Count)
@@ -39,11 +38,34 @@ public class SequenceRandomizer : MonoBehaviour
             var patternNumbers = new System.Collections.Generic.List<int> { firstNumber };
             patternNumbers.AddRange(remainingNumbers.Take(sequenceLength - 1));
 
-            tab.SetNumbers(patternNumbers);
+            var clampedNumbers = patternNumbers.GetRange(0, 5);
+            tab.SetNumbers(clampedNumbers);
         }
 
         foreach (var tab in this.sequenceTabs)
         {
+            tab.ApplyNumbers();
+        }
+
+        SaveSequences();
+    }
+
+    private void SaveSequences()
+    {
+        for (int i = 0; i < this.sequenceTabs.Length; ++i)
+        {
+            var tab = this.sequenceTabs[i];
+            SaveManager.IN.SaveSequence($"Sequence_{i}", tab.Numbers.ToArray());
+        }
+    }
+
+    public void LoadSequences()
+    {
+        for (int i = 0; i < this.sequenceTabs.Length; ++i)
+        {
+            var tab = this.sequenceTabs[i];
+            var savedSequence = SaveManager.IN.GetSequence($"Sequence_{i}");
+            tab.Numbers = savedSequence.ToList();
             tab.ApplyNumbers();
         }
     }
