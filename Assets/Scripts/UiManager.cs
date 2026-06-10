@@ -8,20 +8,20 @@ public class UiManager : MonoBehaviour
 {
 	private int selectedPageIndex = 0;
 
-	[SerializeField] private CanvasGroup splashCanvasGroup;
-	[SerializeField] private CanvasGroup headerCanvasGroup;
+	[SerializeField] private CanvasGroup splashCanvasGroup, headerCanvasGroup;
 
-	[SerializeField] private VerticalLayoutGroup menuTabsVLG;
-	public SequenceTab HowThisWorksTab;
+	[Space, SerializeField] private VerticalLayoutGroup menuTabsVLG;
+	[Space] public SequenceTab HowThisWorksTab;
 	[SerializeField] private SequenceTab[] tabs;
 	[SerializeField] private CanvasGroup[] pages;
 	[SerializeField] private RectTransform backButton;
 
-	[SerializeField] private float tweenDuration = .3f;
+	[Space, SerializeField] private SequenceVisualizer sequenceVisualizer;
+
+	[Space, SerializeField] private float tweenDuration = .3f;
 	[SerializeField] private float delayBetweenTweens = .1f;
 
-	private Sequence showTabsSequence;
-	private Sequence hideTabsSequence;
+	private Sequence showTabsSequence, hideTabsSequence;
 
 	private List<Sequence> tabTweens = new();
 	private List<Sequence> pageTweens = new();
@@ -150,6 +150,8 @@ public class UiManager : MonoBehaviour
 	public void PlaySequence(int inIndex)
 	{
 		AppManager.CurrentSequenceIndex = inIndex;
+
+		this.sequenceVisualizer.PlaySequence(inIndex);
 	}
 
 	public void SetTabStatesToIndex(int inIndex)

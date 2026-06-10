@@ -14,7 +14,9 @@ public class SequenceRandomizer : MonoBehaviour
     public void SetOpeningPattern()
     {
         var openingSequenceList = this.openingSequence.ToList();
-        this.openingSequenceTab.SetPatterns(openingSequenceList);
+        var tab = this.sequenceTabs[0];
+        tab.SetNumbers(openingSequenceList);
+        tab.SetPatterns(openingSequenceList);
     }
 
     public void GenerateRandomPatterns()
@@ -28,7 +30,7 @@ public class SequenceRandomizer : MonoBehaviour
 
         int sequenceLength = Mathf.Min(this.maxPatterns, this.numbers.Length);
 
-        for (int i = 0; i < this.sequenceTabs.Length; ++i)
+        for (int i = 1; i < this.sequenceTabs.Length; ++i)
         {
             var tab = this.sequenceTabs[i];
             tab.Numbers.Clear();
@@ -52,6 +54,8 @@ public class SequenceRandomizer : MonoBehaviour
 
     private void SaveSequences()
     {
+        //SaveManager.IN.SaveSequence($"Sequence_0", this.openingSequenceTab.Numbers.ToArray());
+            
         for (int i = 0; i < this.sequenceTabs.Length; ++i)
         {
             var tab = this.sequenceTabs[i];
