@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -9,8 +7,8 @@ public class SequenceRandomizer : MonoBehaviour
     [SerializeField] private SequenceTab openingSequenceTab;
     [SerializeField] private SequenceTab[] sequenceTabs;
 
-    private int[] openingSequence = { 5, 4, 3, 2, 1 };//set custom order here
-    private int[] numbers = { 0, 1, 2, 3, 4, 5 };
+    private int[] openingSequence = { 6, 5, 4, 3, 2 };//set custom order here
+    private int[] numbers = { 0, 1, 2, 3, 4, 5, 6 };
 
     public void SetOpeningPattern()
     {
@@ -22,57 +20,29 @@ public class SequenceRandomizer : MonoBehaviour
     {
         SetOpeningPattern();
 
-        foreach(var tab in this.sequenceTabs)
+        var availableFirstNumbers = this.numbers.ToList().CreateRandomizedList<int>();
+
+        if (this.sequenceTabs.Length > availableFirstNumbers.Count)
         {
-            tab.Numbers.Clear();
+            Debug.LogWarning($"Cannot assign unique first numbers to {this.sequenceTabs.Length} tabs. Maximum unique starts is {availableFirstNumbers.Count}.");
         }
 
-        var randomNums = this.numbers.ToList();
+        int sequenceLength = Mathf.Min(this.maxPatterns, this.numbers.Length);
 
-        foreach (var tab in this.sequenceTabs)
-        {
-            randomNums.RandomizeList();
-            tab.SetNumbers(randomNums);
-            //tab.SetPatterns(randomNums);
-        }
-        
         for (int i = 0; i < this.sequenceTabs.Length; ++i)
         {
-            if (i == 0) continue;
-
             var tab = this.sequenceTabs[i];
+            tab.Numbers.Clear();
 
-            var isUnique = true;
+            int firstNumber = availableFirstNumbers[i % availableFirstNumbers.Count];
+            var remainingNumbers = this.numbers.Where(n => n != firstNumber).ToList().CreateRandomizedList<int>();
+            var patternNumbers = new System.Collections.Generic.List<int> { firstNumber };
+            patternNumbers.AddRange(remainingNumbers.Take(sequenceLength - 1));
 
-            //loop thru previous tabs
-            for (int j = 0; j < i; ++j)
-            {
-                var prevTab = this.sequenceTabs[j];
-                if (tab.OrderHash == prevTab.OrderHash)
-                    isUnique = false;
-                else if (tab.Numbers[0] == prevTab.Numbers[0])
-                    isUnique = false;
-            }
-
-            while(!isUnique)
-            {
-                randomNums.RandomizeList();
-                tab.SetNumbers(randomNums);
-                isUnique = true;
-
-                //loop thru previous tabs
-                for (int j = 0; j < i; ++j)
-                {
-                    var prevTab = this.sequenceTabs[j];
-                    if (tab.OrderHash == prevTab.OrderHash)
-                        isUnique = false;
-                    else if (tab.Numbers[0] == prevTab.Numbers[0])
-                        isUnique = false;
-                }
-            }
+            tab.SetNumbers(patternNumbers);
         }
-        
-        foreach(var tab in this.sequenceTabs)
+
+        foreach (var tab in this.sequenceTabs)
         {
             tab.ApplyNumbers();
         }
