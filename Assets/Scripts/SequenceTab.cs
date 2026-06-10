@@ -10,12 +10,14 @@ public class SequenceTab : MonoBehaviour
 
     public void SetPatterns(List<int> inPatternOrder)
     {
-        var activeIndices = new System.Collections.Generic.HashSet<int>(inPatternOrder);
+        var numList = inPatternOrder.GetRange(0, 5);
+
+        var activeIndices = new HashSet<int>(numList);
         int siblingIndex = 0;
 
-        for (int orderIndex = 0; orderIndex < inPatternOrder.Count; ++orderIndex)
+        for (int orderIndex = 0; orderIndex < numList.Count; ++orderIndex)
         {
-            int patternIndex = inPatternOrder[orderIndex];
+            int patternIndex = numList[orderIndex];
             if (patternIndex < 0 || patternIndex >= this.patterns.Length)
                 continue;
 
@@ -50,7 +52,6 @@ public class SequenceTab : MonoBehaviour
 
     public void ApplyNumbers()
     {
-        var numList = this.Numbers.GetRange(0, 5);
-        SetPatterns(numList);
+        SetPatterns(this.Numbers);
     }
 }
