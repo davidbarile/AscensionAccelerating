@@ -129,10 +129,11 @@ public class UiManager : MonoBehaviour
 		else
 		{
 			++AppManager.CurrentSequenceIndex;
-			if(AppManager.CurrentSequenceIndex == tabs.Length - 1)
-			{
-				Debug.Log("Show Gma Message");
-			}
+			AppManager.CurrentSequenceIndex %= tabs.Length - 1;
+			// if(AppManager.CurrentSequenceIndex == tabs.Length - 1)
+			// {
+			// 	Debug.Log("Show Gma Message");
+			// }
 		}
 
 		SetTabStatesToIndex(AppManager.CurrentSequenceIndex);

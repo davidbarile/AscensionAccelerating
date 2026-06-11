@@ -5,6 +5,9 @@ using UnityEngine;
 public class PatternsConfig : ScriptableObject
 {
     public PatternData[] PatternDatas;
+
+    [TextArea(0, 10)] public string[] PatternCompleteMessages;
+    [TextArea(0, 10)] public string[] FinalMessages;
 }
 
 [Serializable]
