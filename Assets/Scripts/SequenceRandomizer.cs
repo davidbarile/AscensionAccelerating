@@ -25,7 +25,7 @@ public class SequenceRandomizer : MonoBehaviour
 
         if (this.sequenceTabs.Length > availableFirstNumbers.Count)
         {
-            Debug.LogWarning($"Cannot assign unique first numbers to {this.sequenceTabs.Length} tabs. Maximum unique starts is {availableFirstNumbers.Count}.");
+            Debug.Log($"<color=red>Cannot assign unique first numbers to {this.sequenceTabs.Length} tabs. Maximum unique starts is {availableFirstNumbers.Count}.</color>");
         }
 
         int sequenceLength = Mathf.Min(this.maxPatterns, this.numbers.Length);
