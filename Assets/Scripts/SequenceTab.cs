@@ -7,7 +7,7 @@ public class SequenceTab : MonoBehaviour
     public List<int> Numbers = new();
     public int OrderHash = 0;
 
-    [SerializeField] private Transform[] patterns;
+    [SerializeField] private PatternThumbnail[] patterns;
 
     [SerializeField] private GameObject selectedState;
     [SerializeField] private GameObject disabledOverlay;
@@ -15,28 +15,17 @@ public class SequenceTab : MonoBehaviour
 
     public void SetPatterns(List<int> inPatternOrder)
     {
-        var activeIndices = new HashSet<int>(inPatternOrder);
-        int siblingIndex = 0;
-
-        for (int orderIndex = 0; orderIndex < inPatternOrder.Count; ++orderIndex)
+        for(int i = 0; i < this.patterns.Length; ++i)
         {
-            int patternIndex = inPatternOrder[orderIndex];
-            if (patternIndex < 0 || patternIndex >= this.patterns.Length)
-                continue;
-
-            var pattern = this.patterns[patternIndex];
-            pattern.gameObject.SetActive(true);
-            pattern.SetSiblingIndex(siblingIndex++);
-        }
-
-        for (int i = 0; i < this.patterns.Length; ++i)
-        {
-            if (activeIndices.Contains(i))
-                continue;
-
             var pattern = this.patterns[i];
-            pattern.gameObject.SetActive(false);
-            pattern.SetSiblingIndex(siblingIndex++);
+            var shouldShow = i < inPatternOrder.Count;
+            pattern.gameObject.SetActive(shouldShow);
+
+            if( shouldShow)
+            {
+                var index = inPatternOrder[i];
+                pattern.SetPattern(index);
+            }
         }
     }
 

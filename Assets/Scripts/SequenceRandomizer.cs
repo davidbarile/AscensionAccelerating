@@ -53,9 +53,7 @@ public class SequenceRandomizer : MonoBehaviour
     }
 
     private void SaveSequences()
-    {
-        //SaveManager.IN.SaveSequence($"Sequence_0", this.openingSequenceTab.Numbers.ToArray());
-            
+    {            
         for (int i = 0; i < this.sequenceTabs.Length; ++i)
         {
             var tab = this.sequenceTabs[i];

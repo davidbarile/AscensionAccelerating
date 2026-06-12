@@ -14,5 +14,6 @@ public class PatternsConfig : ScriptableObject
 public class PatternData
 {
     public Sprite Sprite;
+    public Sprite ThumbnailSprite;
     public AudioClip AudioClip;
 }
