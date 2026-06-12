@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -15,41 +16,70 @@ public class SequenceRandomizer : MonoBehaviour
     {
         var openingSequenceList = this.openingSequence.ToList();
         var tab = this.sequenceTabs[0];
-        tab.SetNumbers(openingSequenceList);
-        tab.SetPatterns(openingSequenceList);
+        tab.Numbers = openingSequenceList;
+        tab.CreateHash();
+        tab.SetPatterns( tab.Numbers);
     }
 
     public void GenerateRandomPatterns()
     {
-        var availableFirstNumbers = this.numbers.ToList().CreateRandomizedList<int>();
+        var hashes = new List<int>();
+        bool isUnique = true;
+        int nextRandomNum = 0;
 
-        if (this.sequenceTabs.Length > availableFirstNumbers.Count)
-        {
-            Debug.Log($"<color=red>Cannot assign unique first numbers to {this.sequenceTabs.Length} tabs. Maximum unique starts is {availableFirstNumbers.Count}.</color>");
-        }
-
-        int sequenceLength = Mathf.Min(this.maxPatterns, this.numbers.Length);
-
+        //loop thru all tabs
         for (int i = 1; i < this.sequenceTabs.Length; ++i)
         {
             var tab = this.sequenceTabs[i];
             tab.Numbers.Clear();
 
-            int firstNumber = availableFirstNumbers[i % availableFirstNumbers.Count];
-            var remainingNumbers = this.numbers.Where(n => n != firstNumber).ToList().CreateRandomizedList<int>();
-            var patternNumbers = new System.Collections.Generic.List<int> { firstNumber };
-            patternNumbers.AddRange(remainingNumbers.Take(sequenceLength - 1));
+            //on each tab, loop until there are 5 numbers
+            while (tab.Numbers.Count < this.maxPatterns)
+            {
+                nextRandomNum = this.numbers[Random.Range(0, this.numbers.Length)];//generate random number
 
-            var clampedNumbers = patternNumbers.GetRange(0, 5);
-            tab.SetNumbers(clampedNumbers);
+                if (tab.Numbers.Count > 0)
+                {
+                    //check if the number is different than the previous index, and if it has already been used more than 2 times
+                    while (tab.Numbers[tab.Numbers.Count - 1] == nextRandomNum || tab.Numbers.Count(n => n == nextRandomNum) >= 2)
+                    {
+                        nextRandomNum = this.numbers[Random.Range(0, this.numbers.Length)];
+                    }
+                }
+
+                tab.Numbers.Add(nextRandomNum);
+            }
+
+            tab.CreateHash();
+
+            //check if the pattern is unique
+            if (!hashes.Contains(tab.OrderHash))
+            {
+                hashes.Add(tab.OrderHash);
+            }
+            else
+            {
+                isUnique = false;
+                break;
+            }
         }
 
-        foreach (var tab in this.sequenceTabs)
+        if(isUnique)
         {
-            tab.ApplyNumbers();
-        }
+            Debug.Log($"<color=#00FF00>All PatternsUnique</color>");
+            foreach (var tab in this.sequenceTabs)
+            {
+                tab.ApplyNumbers();
+            }
 
-        SaveSequences();
+            SaveSequences();
+        }
+        else
+        {
+            //if not unique, regenerate
+            Debug.Log($"<color=red>NOT Unique</color>");
+            GenerateRandomPatterns();
+        }
     }
 
     private void SaveSequences()

@@ -29,16 +29,13 @@ public class SequenceTab : MonoBehaviour
         }
     }
 
-    public void SetNumbers(List<int> inPatternOrder)
+    public void CreateHash()
     {
-        this.Numbers = new List<int>(inPatternOrder);
-
         this.OrderHash = 0;
 
         for(int i = 0; i < this.Numbers.Count; ++i)
         {
             this.OrderHash += this.Numbers[i] * (int)Mathf.Pow(10, 4 - i);
-            if (i == 5) break;
         }
     }
 
