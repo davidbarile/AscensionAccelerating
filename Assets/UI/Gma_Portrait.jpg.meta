@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7f874dd68d00e4c2fb2e0ef0a9bdc564
+guid: 74dc9734490b146d0b358c0d32eb6f2d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1629362560720184693
-    second: Violet_0
+      213: 4768602471986462258
+    second: Gma_Portrait_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Violet_0
+      name: Gma_Portrait_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2733
-        height: 2000
+        width: 512
+        height: 529
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b8ad3fd32675369e0800000000000000
-      internalID: -1629362560720184693
+      spriteID: 23e7dc1eeaa7d2240800000000000000
+      internalID: 4768602471986462258
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Violet_0: -1629362560720184693
+      Gma_Portrait_0: 4768602471986462258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

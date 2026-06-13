@@ -60,8 +60,8 @@ public class UiManager : MonoBehaviour
 		this.backButton.anchoredPosition = new Vector2(-this.backButtonWidth, this.backButton.anchoredPosition.y);
 
         foreach (var page in this.pages)
-        {
-            page.gameObject.SetActive(false);
+		{
+			SetCanvasGroupActive(page, false);
             page.transform.localPosition = new Vector3(-this.pageWidth, page.transform.localPosition.y, 0);
         }
     }
@@ -81,9 +81,10 @@ public class UiManager : MonoBehaviour
 
 		this.hideTabsSequence.InsertCallback(delay - (2 * this.delayBetweenTweens),() =>
 		{
-			this.pages[this.selectedPageIndex].gameObject.SetActive(true);
-			this.pages[this.selectedPageIndex].transform.DOLocalMoveX(0, this.tweenDuration);
-			this.pages[this.selectedPageIndex].DOFade(1f, this.tweenDuration);
+			var page = this.pages[this.selectedPageIndex];
+			SetCanvasGroupActive(page, false);
+			page.transform.DOLocalMoveX(0, this.tweenDuration);
+			page.DOFade(1f, this.tweenDuration);
 		});
 
 		var backPos = new Vector2(0, this.backButton.anchoredPosition.y);
@@ -114,12 +115,14 @@ public class UiManager : MonoBehaviour
 	{
 		PlayShowTabsTween();
 
-		this.pages[this.selectedPageIndex].transform.DOLocalMoveX(-this.pageWidth, this.tweenDuration).OnComplete(() =>
+		var page = this.pages[this.selectedPageIndex];
+
+		page.transform.DOLocalMoveX(-this.pageWidth, this.tweenDuration).OnComplete(() =>
 		{
-			this.pages[this.selectedPageIndex].gameObject.SetActive(false);
+			SetCanvasGroupActive(page, false);
 		});
 
-		this.pages[this.selectedPageIndex].DOFade(0, this.tweenDuration);
+		page.DOFade(0, this.tweenDuration);
 
 		if (AppManager.CurrentSequenceIndex == -1)
 		{
@@ -148,11 +151,12 @@ public class UiManager : MonoBehaviour
 		PlayHideTabsTween();
 	}
 
+	//called from button press
 	public void PlaySequence(int inIndex)
 	{
 		AppManager.CurrentSequenceIndex = inIndex;
 
-		this.sequenceVisualizer.PlaySequence(inIndex);
+		this.sequenceVisualizer.InitSequence(inIndex);
 	}
 
 	public void SetTabStatesToIndex(int inIndex)
@@ -186,5 +190,14 @@ public class UiManager : MonoBehaviour
 	public void HandleSplashPageClick()
 	{
 		this.splashCanvasGroup.DOFade(0, this.tweenDuration).OnComplete(() => this.splashCanvasGroup.gameObject.SetActive(false));
+	}
+
+	public static void SetCanvasGroupActive(CanvasGroup inCanvasGroup, bool inActive)
+	{
+		if (inActive)
+			inCanvasGroup.gameObject.SetActive(true);
+			
+		inCanvasGroup.alpha = inActive ? 1f : 0f;
+		//inCanvasGroup.blocksRaycasts = inActive;
 	}
 }
