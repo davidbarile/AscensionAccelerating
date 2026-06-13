@@ -129,19 +129,8 @@ public class UiManager : MonoBehaviour
 			AppManager.CurrentSequenceIndex = 0;
 			this.HowThisWorksTab.SetSelected(false);
 		}
-		else
-		{
-			++AppManager.CurrentSequenceIndex;
-			AppManager.CurrentSequenceIndex %= tabs.Length - 1;
-			// if(AppManager.CurrentSequenceIndex == tabs.Length - 1)
-			// {
-			// 	Debug.Log("Show Gma Message");
-			// }
-		}
 
 		SetTabStatesToIndex(AppManager.CurrentSequenceIndex);
-
-		//if( this.pages[this.selectedPageIndex].TryGetComponent<VideoPage>(out var vp)) vp.StopVideo();
 	}
 
 	public void SelectPage(int inIndex)

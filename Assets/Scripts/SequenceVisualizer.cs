@@ -14,8 +14,6 @@ public class SequenceVisualizer : MonoBehaviour
 
     private List<PatternVisualization> patternVisualizations = new();
 
-    [SerializeField] private Image[] testImages;
-
     [SerializeField] private PatternsConfig patternsConfig;
 
     [Range(0f, 5f), SerializeField] private float tweenDuration = 1f;
@@ -51,20 +49,6 @@ public class SequenceVisualizer : MonoBehaviour
             }
         }
 
-        // for(int i = 0; i < this.testImages.Length; ++i)
-        // {
-        //     var shouldShow = i < this.sequence.Length;
-
-        //     var img = this.testImages[i];
-        //     img.gameObject.SetActive(shouldShow);
-
-        //     if(shouldShow)
-        //     {
-        //         var index = this.sequence[i];
-        //         img.sprite = this.patternsConfig.PatternDatas[index].Sprite;
-        //     }
-        // }
-
         StopAllCoroutines();
         StartCoroutine(PlaySequence());
     }
@@ -94,6 +78,10 @@ public class SequenceVisualizer : MonoBehaviour
             yield return new WaitForSeconds(delay);
             this.activePattern.Stop();
         }
+
+        ++AppManager.CurrentSequenceIndex;
+        AppManager.CurrentSequenceIndex %= 6;
+        SaveManager.IN.SaveSequenceIndex(AppManager.CurrentSequenceIndex);
     }
 
     //called from back button

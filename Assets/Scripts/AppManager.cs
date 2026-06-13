@@ -29,16 +29,15 @@ public class AppManager : MonoBehaviour
 
 		if (isFirstUse)
 		{
-			Debug.Log($"<color=#00FF00>First Use - GenerateRandomPatterns()</color>");
 			this.sequenceRandomizer.GenerateRandomPatterns();
 			CurrentSequenceIndex = -1;
-
+			Debug.Log($"<color=#00FF00>First Use - GenerateRandomPatterns()</color>");
 		}
 		else
 		{
-			Debug.Log($"<color=red>Not First Use - LoadSequences()</color>");
 			this.sequenceRandomizer.LoadSequences();
 			CurrentSequenceIndex = this.saveManager.GetSequenceIndex();
+			Debug.Log($"<color=red>Not First Use - LoadSequences().  CurrentSequenceIndex = {CurrentSequenceIndex}</color>");
 		}
 		
 		this.uiManager.HowThisWorksTab.SetSelected(isFirstUse);
