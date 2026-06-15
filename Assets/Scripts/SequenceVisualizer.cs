@@ -9,8 +9,9 @@ public class SequenceVisualizer : MonoBehaviour
 {
     [SerializeField] private TMP_Text headerText;
     [SerializeField] private Transform[] patternParents;
+    [Space, SerializeField] private Slider volumeSlider;
 
-    [SerializeField] private bool debugMode;
+    [Space, SerializeField] private bool debugMode;
 
     private List<PatternVisualization> patternVisualizations = new();
 
@@ -94,15 +95,27 @@ public class SequenceVisualizer : MonoBehaviour
             this.activePattern.AudioSource.DOFade(0f, 1f).OnComplete(() => this.activePattern.Stop());
         }
     }
-    
+
     private void DestroyAllVisualizations()
     {
-         for (int i = 0; i < this.patternVisualizations.Count; ++i)
+        for (int i = 0; i < this.patternVisualizations.Count; ++i)
         {
             if (this.patternVisualizations[i] != null)
                 Destroy(this.patternVisualizations[i].gameObject);
         }
 
         this.patternVisualizations.Clear();
+    }
+
+    //called from UI Slider
+    public void SetVolume(float inVolume)
+    {
+        AudioListener.volume = inVolume;
+        SaveManager.IN.SaveVolume(inVolume);
+    }
+    
+    public void SetVolumeSliderValue(float inValue)
+    {
+        this.volumeSlider.SetValueWithoutNotify(inValue);
     }
 }

@@ -16,6 +16,8 @@ public class UiManager : MonoBehaviour
 	[SerializeField] private CanvasGroup[] pages;
 	[SerializeField] private RectTransform backButton;
 
+	public SequenceVisualizer SequenceVisualizer => this.sequenceVisualizer;
+
 	[Space, SerializeField] private SequenceVisualizer sequenceVisualizer;
 
 	[Space, SerializeField] private float tweenDuration = .3f;
