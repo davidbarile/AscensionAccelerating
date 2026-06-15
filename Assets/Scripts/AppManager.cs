@@ -63,6 +63,5 @@ public class AppManager : MonoBehaviour
 	private void OnApplicationQuit()
 	{
 		this.saveManager.SaveDate(DateTime.Now.Date.DayOfYear);
-		Debug.Log($"<color=red>OnApplicationQuit.  CurrentSequenceIndex = {CurrentSequenceIndex}</color>");
 	}
 }
