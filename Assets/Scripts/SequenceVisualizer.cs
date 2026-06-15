@@ -8,14 +8,15 @@ using DG.Tweening;
 public class SequenceVisualizer : MonoBehaviour
 {
     [SerializeField] private TMP_Text headerText;
+    [SerializeField] private TMP_Text messageText;
     [SerializeField] private Transform[] patternParents;
     [Space, SerializeField] private Slider volumeSlider;
 
     [Space, SerializeField] private bool debugMode;
+    [SerializeField] private PatternsConfig patternsConfig;
 
     private List<PatternVisualization> patternVisualizations = new();
-
-    [SerializeField] private PatternsConfig patternsConfig;
+    private List<string> endMessages = new();
 
     [Range(0f, 5f), SerializeField] private float tweenDuration = 1f;
 
@@ -28,6 +29,25 @@ public class SequenceVisualizer : MonoBehaviour
             this.headerText.text = $"Opening Sequence";
         else
             this.headerText.text = $"Sequence {inIndex}";
+
+        if (this.endMessages.Count == 0)
+        {
+            this.endMessages.AddRange(this.patternsConfig.PatternCompleteMessages);
+            this.endMessages.RandomizeList();
+        }
+
+        //add random end message
+        if (inIndex == 5)
+        {
+            var rnd = Random.Range(0, this.patternsConfig.FinalMessages.Length);
+            this.messageText.text = this.patternsConfig.FinalMessages[rnd];
+        }
+        else
+        {
+            this.messageText.text = this.endMessages[0];
+            this.endMessages.RemoveAt(0);
+        }
+        
 
         this.sequence = SaveManager.IN.GetSequence($"Sequence_{inIndex}");
 
