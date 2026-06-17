@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc8c857505c134c4693d19178e688de0
+guid: c3c2fd5d6216a4ef59b4247c3b58181e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4003223316803723154
-    second: Cyan_0
+      213: -241673516757495250
+    second: cyan_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cyan_0
+      name: cyan_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4000
-        height: 2500
+        width: 2500
+        height: 4000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e606a557a91b178c0800000000000000
-      internalID: -4003223316803723154
+      spriteID: e22dc0a873765acf0800000000000000
+      internalID: -241673516757495250
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cyan_0: -4003223316803723154
+      cyan_0: -241673516757495250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

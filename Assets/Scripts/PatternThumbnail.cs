@@ -9,7 +9,7 @@ public class PatternThumbnail : MonoBehaviour
     [SerializeField] private PatternsConfig patternsConfig;
     public void SetPattern(int inIndex)
     {
-        this.patternImage.sprite = this.patternsConfig.PatternDatas[inIndex].Sprite;
+        this.patternImage.sprite = this.patternsConfig.PatternDatas[inIndex].ThumbnailSprite;
         this.indexText.text = $"{inIndex}";
     }
 }

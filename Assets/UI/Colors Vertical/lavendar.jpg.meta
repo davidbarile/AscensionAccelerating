@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 704d52ed30f1646888324573a6d87bed
+guid: e2793f4e089b444ec9dd08167613f594
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3767131854301540394
-    second: magenta_0
+      213: 8364221771653989759
+    second: lavendar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: magenta_0
+      name: lavendar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2003
-        height: 1502
+        width: 2048
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a20b3bd567a874430800000000000000
-      internalID: 3767131854301540394
+      spriteID: f754602c26fa31470800000000000000
+      internalID: 8364221771653989759
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      magenta_0: 3767131854301540394
+      lavendar_0: 8364221771653989759
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
