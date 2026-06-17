@@ -11,17 +11,14 @@ public class SequenceVisualizer : MonoBehaviour
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private Transform[] patternParents;
     [Space, SerializeField] private Slider volumeSlider;
-
-    [Space, SerializeField] private bool debugMode;
-    [SerializeField] private PatternsConfig patternsConfig;
-
-    private List<PatternVisualization> patternVisualizations = new();
-    private List<string> endMessages = new();
-
+    [Space, SerializeField] private PatternsConfig patternsConfig;
     [Range(0f, 5f), SerializeField] private float tweenDuration = 1f;
+    [Space, SerializeField] private bool debugMode;
 
     private int[] sequence = new int[0];
     private PatternVisualization activePattern = null;
+    private List<PatternVisualization> patternVisualizations = new();
+    private List<string> endMessages = new();
 
     public void InitSequence(int inIndex)
     {
