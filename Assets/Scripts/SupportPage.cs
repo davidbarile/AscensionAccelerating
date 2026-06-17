@@ -17,6 +17,8 @@ public class SupportPage : MonoBehaviour
 	private string url_Chandra = "";
 	private string url_Email2 = "";
 
+	private int tapCounter = 0;
+
 
 	//"<color=#0000FF><u><link=\"https://unity.com\">here</link></u></color>";
 
@@ -53,8 +55,37 @@ public class SupportPage : MonoBehaviour
 		this.label.text += $"For app technical help, {url_Email2}.";
 	}
 
-	public void HandleURLButtonPress()
+    private void OnEnable()
+    {
+        this.tapCounter = 0;
+    }
+
+    public void HandleURLButtonPress()
 	{
-		Application.OpenURL( "https://www.grandmachandra.com/ascensionassist" );
+		Application.OpenURL("https://www.grandmachandra.com/ascensionassist");
+	}
+	
+	public void HandleSecretButtonPress()
+	{
+		++this.tapCounter;
+
+		var numTapsToTrigger = 20;
+
+		if (Application.isEditor)
+			numTapsToTrigger = 5;
+			
+		Debug.Log($"Taps left to clear data: {this.tapCounter}/{numTapsToTrigger}");
+
+		if(this.tapCounter == numTapsToTrigger)
+		{
+			this.tapCounter = 0;
+
+			PlayerPrefs.DeleteAll();
+
+			if (Application.isEditor)
+				UnityEditor.EditorApplication.isPlaying = false;
+			else
+				Application.Quit();
+		}
 	}
 }
