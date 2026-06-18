@@ -27,24 +27,7 @@ public class SequenceVisualizer : MonoBehaviour
         else
             this.headerText.text = $"Sequence {inIndex}";
 
-        if (this.endMessages.Count == 0)
-        {
-            this.endMessages.AddRange(this.patternsConfig.PatternCompleteMessages);
-            this.endMessages.RandomizeList();
-        }
-
-        //add random end message
-        if (inIndex == 5)
-        {
-            var rnd = Random.Range(0, this.patternsConfig.FinalMessages.Length);
-            this.messageText.text = this.patternsConfig.FinalMessages[rnd];
-        }
-        else
-        {
-            this.messageText.text = this.endMessages[0];
-            this.endMessages.RemoveAt(0);
-        }
-        
+        RandomizeMessages(inIndex);
 
         this.sequence = SaveManager.IN.GetSequence($"Sequence_{inIndex}");
 
@@ -71,6 +54,26 @@ public class SequenceVisualizer : MonoBehaviour
         StartCoroutine(PlaySequence());
     }
 
+    private void RandomizeMessages(int inIndex)
+    {
+        if (this.endMessages.Count == 0)
+        {
+            this.endMessages.AddRange(this.patternsConfig.PatternCompleteMessages);
+            this.endMessages.RandomizeList();
+        }
+
+        //add random end message
+        if (inIndex == 5)
+        {
+            var rnd = Random.Range(0, this.patternsConfig.FinalMessages.Length);
+            this.messageText.text = this.patternsConfig.FinalMessages[rnd];
+        }
+        else
+        {
+            this.messageText.text = this.endMessages[0];
+            this.endMessages.RemoveAt(0);
+        }
+    }
 
     private IEnumerator PlaySequence()
     {
@@ -130,9 +133,32 @@ public class SequenceVisualizer : MonoBehaviour
         AudioListener.volume = inVolume;
         SaveManager.IN.SaveVolume(inVolume);
     }
-    
+
     public void SetVolumeSliderValue(float inValue)
     {
         this.volumeSlider.SetValueWithoutNotify(inValue);
     }
+
+#region Debug
+    public void DebugRandomizeMessages()
+    {
+        var rnd = Random.Range(0, 5);
+        this.RandomizeMessages(rnd);
+    }
+
+    public void DebugRandomizeEndMessage()
+    {
+        this.RandomizeMessages(5);
+    }
+
+    public void DebugShowMessage(int inIndex)
+    {
+        this.messageText.text = this.patternsConfig.PatternCompleteMessages[inIndex];
+    }
+
+    public void DebugShowEndMessage(int inIndex)
+    {
+        this.messageText.text = this.patternsConfig.FinalMessages[inIndex];
+    }
+#endregion
 }
