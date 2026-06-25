@@ -9,50 +9,56 @@ public class SupportPage : MonoBehaviour
 {
 	[SerializeField] TMP_Text label;
 
-	private readonly string format1 = "<color=#FFF19B><u><link=\"";
-	private readonly string format2 = "\">tap here</link></u></color>";
+	private readonly string format1 = "<color=#FFF19B><link=\"";
+	private readonly string format2 = "\">tap here</link></color>";
 
 	private string url_Email1 = "";
-	private string url_UsersGuide = "";
-	private string url_Chandra = "";
-	private string url_Email2 = "";
+	private string url_LearnMore = "";
+
+	private string lineBreak = "<size=40>\n\n</size>";
 
 	private int tapCounter = 0;
-
 
 	//"<color=#0000FF><u><link=\"https://unity.com\">here</link></u></color>";
 
 	private void Start()
 	{
+		this.url_Email1 = $"{format1}mailto:support@goldenpodinternational.com?subject=Support%20Request%20for%20Ascension%20Accelerating%20App{format2}";
+		this.url_LearnMore = $"{format1}http://www.goldenpodinternational.com/ascension-accelerating{format2}";
 
-		this.url_Email1 = $"{format1}mailto:support@goldenpodinternational.com?subject=Ascension%20Rising%20Usage{format2}";
-		this.url_UsersGuide = $"{format1}http://www.goldenpodinternational.com/ascension-rising{format2}";
-		this.url_Chandra = $"{format1}https://www.grandmachandra.com{format2}";
-		this.url_Email2 = $"{format1}mailto:support@goldenpodinternational.com?subject=Ascension%20Rising%20Support{format2}";
-
-		this.label.text = "This is the second app, in a series designed to assist you in harnessing the magnetic energies of the sacred geometries within the Octuple Dorje. Grandma Chandra’s 33rd Dimensional Masterhood will boost your ascension interconnections with these magnetic energies to accelerate your reach and interaction with the multiple dimensions within the Quantum Light Field.";
+		this.label.text = "Ascension Accelerating is the third app in a series. It is all about energies and waves of vibration. It harnesses the power of the sacred geometry of the Melchizedek Vortex as on the carriers of these energies. I am bringing the real presence of energy, sound, vibration, color and coding to you through this app. ";
+		this.label.text += this.lineBreak;
+		this.label.text += "You can work with this app at any level of Ascension.  Wherever you are on your Ascension Path, you can use this tool to get the best results for yourself. This is where the individual codes will come into play because they are reading your vibrational field and attuning the waves of vibration to your level to give you the best guidance, leading you on your Path.";
+		this.label.text += this.lineBreak;
+		this.label.text += "These codes and frequencies designed especially for you will come in through your eyes, your 3rd eye and your throat chakra.";
+		this.label.text += this.lineBreak;
+		this.label.text += "All these frequencies have a distinct purpose and will be calibrated for your personal needs. They will address the maladies of your body and spirit while clearing influences hindering the raising of your consciousness. The intent is to assist in the Ascension of your soul to its highest purpose in conjunction with Divine order.";
+		this.label.text += this.lineBreak;
+		this.label.text += "Open your heart to allow the energies to come into your energetic field or your Aura. Be sure your breathing is deep and rhythmic. Fill your chest and abdomen, expanding them with every in breath and collapsing them with every out breath, abdomen first and then chest. With every breath you take, the energy is penetrating deeper and deeper into your energetic body.";
+		this.label.text += this.lineBreak;
+		this.label.text += "This app is an amplifier for anything and everything that is in Divine Flow. You can play the app before or after using other tools to support them. You can use the app individually or in a group. During group work the app is amplifying your part of the work and the contributions you make to the group since the app is based on your custom codes and frequencies.";
+		this.label.text += this.lineBreak;
+		this.label.text += "The Ascension Accelerator is based on your energetic characteristics of the sound, color and vibration, physical characteristics and your energetic field or Aura.";
+		this.label.text += this.lineBreak;
+		this.label.text += "Don't expect physical sensations when working with the app. All the work is taking place on a multidimensional or quantum level. Your vibrational field will be changing. You will not be able to recognize the changes with your physical 3D senses.";
+		this.label.text += this.lineBreak;
+		this.label.text += "The opening sequence is connecting you to Humanity’s Grid at the highest level that humanity has achieved at the moment you are playing the app. I am tuning the app to the highest conscious vibrational level of humanity.";
+		this.label.text += this.lineBreak;
+		this.label.text += "Sequence 1 thru 5 are personally customized for each person who is working with the app. The sequences are updated each time you play the app to meet you at your current vibrational level.";
 		this.label.text += "\n\n";
-		this.label.text += "In this app you will experience three different videos of the Octuple Dorje flashing, spinning, or multiple Dorjes merging in kaleidoscopic rotations. The fourth video is comprised of three Light Language Symbols, which along with the Divine sound of the Hu chant, truly boost your vibratory frequency.  Meditating on these movements and listening to the audios facilitate Grandma Chandra’s delivering to you, layer-by-layer, these specialized codes and frequencies into your physical and etheric bodies so that you can progress into higher energetic frequencies much faster.  By working through the menu of this app, you facilitate your development, expansion and activation of your light flowing crystalline networks.  For most effective listening, please use ear phones or a headset.";
-		this.label.text += "\n\n";
-		this.label.text += "These crystalline networks link you into the Quantum Light Field where your Greater Multidimensional Aspects and huge stores of knowledge are accessible.  The Octuple Dorje accelerates your transition from carbon to crystalline DNA and the network building, while Grandma Chandra continually adjusts the frequencies and codes to optimize your level-by-level progress.   As you progress, your network activation accelerates your remembrance of the energetics, frequencies, codes and the knowledge of the Sacred Geometries of the Light Language.  You will experience ever more strongly your interconnection to the Source within this Unified Quantum Light Field.";
-		this.label.text += "\n\n";
-		this.label.text += "Grandma Chandra highly recommends using this app daily, ideally first thing in the morning. Take eight minutes to listen to all four modules. This will help you receive richer detail from your intuition and wisdom.";
-		this.label.text += "\n\n";
-
-		this.label.text += $"To receive a personal app usage recommendation from Grandma Chandra, {url_Email1} to send an e-mail.";
-		this.label.text += "\n\n";
-
-		this.label.text += $"To learn more about the app, including link to a User’s Guide, {url_UsersGuide}.";
+		this.label.text += "<b>Ascension Accelerated Recommended Usage</b>";
+		this.label.text += this.lineBreak;
+		this.label.text += "Ground before using the app. Use your intention to be grounded into Gaia.";
+		this.label.text += this.lineBreak;
+		this.label.text += "Work with the app in a quiet place where you will not be interrupted.";
+		this.label.text += this.lineBreak;
+		this.label.text += "It is recommended that you play all sequences each time you work with the app.  Play all sequences 1x/day. More than once could cause overload.";
 		this.label.text += "\n\n";
 
-		// this.label.text += "To learn more about the Octuple Dorje or to purchase one, [url=https://www.grandmachandra.com/collections/geometric-forms/products/octuple-dorje][u][7C04B0FF]tap here[-][/u][/url].";
-		// this.label.text += "\n\n";
-
-		this.label.text += $"For more ascension help {url_Chandra}.";
+		this.label.text += $"To Learn more about the app\n{url_LearnMore}";
 		this.label.text += "\n\n";
 
-
-		this.label.text += $"For app technical help, {url_Email2}.";
+		this.label.text += $"For app support\n{url_Email1}.";
 	}
 
     private void OnEnable()
@@ -62,7 +68,7 @@ public class SupportPage : MonoBehaviour
 
     public void HandleURLButtonPress()
 	{
-		Application.OpenURL("https://www.grandmachandra.com/ascensionassist");
+		Application.OpenURL("http://www.goldenpodinternational.com/ascension-accelerating");
 	}
 	
 	public void HandleSecretButtonPress()
