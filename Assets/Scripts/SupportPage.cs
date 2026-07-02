@@ -26,7 +26,7 @@ public class SupportPage : MonoBehaviour
 		this.url_Email1 = $"{format1}mailto:support@goldenpodinternational.com?subject=Support%20Request%20for%20Ascension%20Accelerating%20App{format2}";
 		this.url_LearnMore = $"{format1}http://www.goldenpodinternational.com/ascension-accelerating{format2}";
 
-		this.label.text = "Ascension Accelerating is the third app in a series. It is all about energies and waves of vibration. It harnesses the power of the sacred geometry of the Melchizedek Vortex as on the carriers of these energies. I am bringing the real presence of energy, sound, vibration, color and coding to you through this app. ";
+		this.label.text = "Ascension Accelerating is the third app in a series. It is all about energies and waves of vibration. It harnesses the power of the sacred geometry of the Melchizedek Vortex as one of the carriers of these energies. I am bringing the real presence of energy, sound, vibration, color and coding to you through this app. ";
 		this.label.text += this.lineBreak;
 		this.label.text += "You can work with this app at any level of Ascension.  Wherever you are on your Ascension Path, you can use this tool to get the best results for yourself. This is where the individual codes will come into play because they are reading your vibrational field and attuning the waves of vibration to your level to give you the best guidance, leading you on your Path.";
 		this.label.text += this.lineBreak;
