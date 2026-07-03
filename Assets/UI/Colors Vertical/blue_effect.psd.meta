@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 70ace48a36cfd48fa89d51842fdf0515
+guid: 206978c6843ab46be838b74139972759
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7116747437777718007
-    second: aqua_effect_0
+      213: 9084138237834942124
+    second: lavendar_effect_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aqua_effect_0
+      name: lavendar_effect_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 2048
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fa89e8a614c3c260800000000000000
-      internalID: 7116747437777718007
+      spriteID: ca6d1b4f897511e70800000000000000
+      internalID: 9084138237834942124
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      aqua_effect_0: 7116747437777718007
+      lavendar_effect_0: 9084138237834942124
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
