@@ -88,10 +88,11 @@ public class SupportPage : MonoBehaviour
 
 			PlayerPrefs.DeleteAll();
 
-			if (Application.isEditor)
+			#if UNITY_EDITOR
 				UnityEditor.EditorApplication.isPlaying = false;
-			else
+			#else
 				Application.Quit();
+			#endif
 		}
 	}
 }
