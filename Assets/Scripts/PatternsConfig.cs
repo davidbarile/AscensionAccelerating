@@ -24,8 +24,8 @@ public class PatternsConfig : ScriptableObject
 
         UnityEditor.EditorUtility.SetDirty(this);
     }
-}
 #endif
+}
 
 [Serializable]
 public class PatternData
