@@ -65,6 +65,10 @@ namespace DBarile
             var fileName = this.labelTimeStamp ? $"{this.fileName}{dimsString}_{timeStampString}.png" : $"{this.fileName}{dimsString}_{numFiles}.png";
             ScreenCapture.CaptureScreenshot($"{this.filePath}/{subFolderName}{fileName}", this.scaleFactor);
 
+#if UNITY_EDITOR
+            UnityEditor.AssetDatabase.Refresh();
+#endif
+
             Debug.Log($"<color=yellow>Screen Capture:</color> <color=#999>{this.filePath}/{subFolderName}</color><color=white>{fileName}</color>");
         }
     }
