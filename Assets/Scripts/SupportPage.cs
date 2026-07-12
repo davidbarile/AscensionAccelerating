@@ -26,7 +26,9 @@ public class SupportPage : MonoBehaviour
 		this.url_Email1 = $"{format1}mailto:support@goldenpodinternational.com?subject=Support%20Request%20for%20Ascension%20Accelerating%20App{format2}";
 		this.url_LearnMore = $"{format1}http://www.goldenpodinternational.com/ascension-accelerating{format2}";
 
-		this.label.text = "Ascension Accelerating is the third app in a series. It is all about energies and waves of vibration. It harnesses the power of the sacred geometry of the Melchizedek Vortex as one of the carriers of these energies. I am bringing the real presence of energy, sound, vibration, color and coding to you through this app. ";
+		this.label.text = "Ascension Accelerating is the third app in a series. It assists you to release influences and 3D programming to facilitate a smoother transition into the 5th dimension.";
+		this.label.text += this.lineBreak;
+		this.label.text += "Ascension Accelerating is all about energies and waves of vibration. It harnesses the power of the sacred geometry of the Melchizedek Vortex as one of the carriers of these energies. I am bringing the real presence of energy, sound, vibration, color and coding to you through this app.";
 		this.label.text += this.lineBreak;
 		this.label.text += "You can work with this app at any level of Ascension.  Wherever you are on your Ascension Path, you can use this tool to get the best results for yourself. This is where the individual codes will come into play because they are reading your vibrational field and attuning the waves of vibration to your level to give you the best guidance, leading you on your Path.";
 		this.label.text += this.lineBreak;
@@ -38,15 +40,15 @@ public class SupportPage : MonoBehaviour
 		this.label.text += this.lineBreak;
 		this.label.text += "This app is an amplifier for anything and everything that is in Divine Flow. You can play the app before or after using other tools to support them. You can use the app individually or in a group. During group work the app is amplifying your part of the work and the contributions you make to the group since the app is based on your custom codes and frequencies.";
 		this.label.text += this.lineBreak;
-		this.label.text += "The Ascension Accelerator is based on your energetic characteristics of the sound, color and vibration, physical characteristics and your energetic field or Aura.";
+		this.label.text += "The Ascension Accelerating is based on your energetic characteristics of the sound, color and vibration, physical characteristics and your energetic field or Aura.";
 		this.label.text += this.lineBreak;
 		this.label.text += "Don't expect physical sensations when working with the app. All the work is taking place on a multidimensional or quantum level. Your vibrational field will be changing. You will not be able to recognize the changes with your physical 3D senses.";
 		this.label.text += this.lineBreak;
 		this.label.text += "The opening sequence is connecting you to Humanity’s Grid at the highest level that humanity has achieved at the moment you are playing the app. I am tuning the app to the highest conscious vibrational level of humanity.";
 		this.label.text += this.lineBreak;
-		this.label.text += "Sequence 1 thru 5 are personally customized for each person who is working with the app. The sequences are updated each time you play the app to meet you at your current vibrational level.";
+		this.label.text += "Sequences 1 thru 5 expand consciousness, awaken your gifts and your senses so you can become the true telepathic, multidimensional being that you were meant to be. Each sequence is personally customized for you. The codes and frequencies within each sequence are updated each time you play the app to meet you are your current vibrational level.";
 		this.label.text += "\n\n";
-		this.label.text += "<b>Ascension Accelerated Recommended Usage</b>";
+		this.label.text += "<b>Ascension Accelerating Recommended Usage</b>";
 		this.label.text += this.lineBreak;
 		this.label.text += "Ground before using the app. Use your intention to be grounded into Gaia.";
 		this.label.text += this.lineBreak;
