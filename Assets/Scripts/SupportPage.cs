@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
 
 public class SupportPage : MonoBehaviour 
@@ -36,9 +32,9 @@ public class SupportPage : MonoBehaviour
 		this.label.text += this.lineBreak;
 		this.label.text += "All these frequencies have a distinct purpose and will be calibrated for your personal needs. They will address the maladies of your body and spirit while clearing influences hindering the raising of your consciousness. The intent is to assist in the Ascension of your soul to its highest purpose in conjunction with Divine order.";
 		this.label.text += this.lineBreak;
-		this.label.text += "Open your heart to allow the energies to come into your energetic field or your Aura. Be sure your breathing is deep and rhythmic. Fill your chest and abdomen, expanding them with every in breath and collapsing them with every out breath, abdomen first and then chest. With every breath you take, the energy is penetrating deeper and deeper into your energetic body.";
+		this.label.text += "Open your heart to allow the energies to come into your energetic field or your Aura. Be sure your breathing is deep and rhythmic. When filling your chest and abdomen, expand them with every in breath and collapse them with every out breath. On the in hale first expand the chest and then the abdomen. On the exhale collapse the abdomen first and then the chest. With every breath you take, the energy is penetrating deeper and deeper into your energetic body.";
 		this.label.text += this.lineBreak;
-		this.label.text += "This app is an amplifier for anything and everything that is in Divine Flow. You can play the app before or after using other tools to support them. You can use the app individually or in a group. During group work the app is amplifying your part of the work and the contributions you make to the group since the app is based on your custom codes and frequencies.";
+		this.label.text += "This app is an amplifier for anything and everything that is in Divine Flow. You can play the app before or after using other tools to support yourselves. You can use the app individually or in a group. During group work the app is amplifying your part of the work and the contributions you make to the group since the app is based on your custom codes and frequencies.";
 		this.label.text += this.lineBreak;
 		this.label.text += "The Ascension Accelerating is based on your energetic characteristics of the sound, color and vibration, physical characteristics and your energetic field or Aura.";
 		this.label.text += this.lineBreak;
@@ -46,7 +42,7 @@ public class SupportPage : MonoBehaviour
 		this.label.text += this.lineBreak;
 		this.label.text += "The opening sequence is connecting you to Humanity’s Grid at the highest level that humanity has achieved at the moment you are playing the app. I am tuning the app to the highest conscious vibrational level of humanity.";
 		this.label.text += this.lineBreak;
-		this.label.text += "Sequences 1 thru 5 expand consciousness, awaken your gifts and your senses so you can become the true telepathic, multidimensional being that you were meant to be. Each sequence is personally customized for you. The codes and frequencies within each sequence are updated each time you play the app to meet you are your current vibrational level.";
+		this.label.text += "Sequences 1 thru 5 expand consciousness, awaken your gifts and your senses so you can become the true telepathic, multidimensional being that you were meant to be. Each sequence is personally customized for you. The codes and frequencies within each sequence are updated each time you play the app to meet you at your current vibrational level.";
 		this.label.text += "\n\n";
 		this.label.text += "<b>Ascension Accelerating Recommended Usage</b>";
 		this.label.text += this.lineBreak;
